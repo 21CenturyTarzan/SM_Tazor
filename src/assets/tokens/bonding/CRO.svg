@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" x="0px" y="0px" style="enable-background:new 0 0 2167.7 2502.5;" width="32px" height="32px" xmlns="http://www.w3.org/2000/svg">
+  <style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_00000016760000628848746960000000291323288447655331_);}
+	.st2{fill:#FFFFFF;}
+</style>
+  <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="795.8919" y1="1699.9476" x2="795.8919" y2="1608.7477" gradientTransform="matrix(0.405053, 0, 0, -0.350879, -306.378693, 596.47516)">
+    <stop offset="0" style="stop-color:#25376C"/>
+    <stop offset="1" style="stop-color:#1F1F49"/>
+  </linearGradient>
+  <path class="st0" d="M 16 0 L 0 8 L 0 24 L 16 32 L 32 24 L 32 8 L 16 0 Z"/>
+  <linearGradient id="SVGID_00000007418222533405911760000015435408293652292017_" gradientUnits="userSpaceOnUse" x1="776.1419" y1="1608.7477" x2="776.1419" y2="1699.9476" gradientTransform="matrix(0.405053, 0, 0, -0.350879, -306.378693, 596.47516)">
+    <stop offset="0" style="stop-color:#25376C"/>
+    <stop offset="1" style="stop-color:#1F1F49"/>
+  </linearGradient>
+  <path style="fill:url(#SVGID_00000007418222533405911760000015435408293652292017_);" d="M 16 0 L 0 8 L 0 24 L 16 32 L 16 0 Z"/>
+  <path class="st2" d="M 22.237 6.913 L 9.681 6.913 L 8.222 12.456 L 23.776 12.456 L 22.237 6.913 Z M 11.908 20.071 L 11.908 16.387 L 8.182 14.351 L 3.969 17.053 L 9.72 25.72 L 12.031 25.72 L 14.744 23.509 L 14.744 22.421 L 11.908 20.071 Z"/>
+  <path class="st2" d="M 20.051 13.299 L 11.949 13.299 L 13.287 16.387 L 12.882 19.861 L 19.121 19.861 L 18.716 16.387 L 20.051 13.299 Z"/>
+  <path class="st2" d="M 23.776 14.315 L 20.09 16.386 L 20.09 20.07 L 17.296 22.42 L 17.296 23.508 L 20.009 25.683 L 22.278 25.683 L 27.989 17.052 L 23.776 14.315 Z"/>
+</svg>
