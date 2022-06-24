@@ -74,10 +74,11 @@ export default function CalculatorPaper() {
 
   let history = useHistory();
 
-  useEscape(() => {
-    if (open) handleClose;
-    else history.push(`/stake`);
-  });
+  // useEscape(() => 
+  // {
+  //   if (open) {handleClose;}
+  //   else {history.push(`/stake`); }
+  // });
 
   // const stakingAPR = useAppSelector(state => {
   //   return state.app.stakingAPY || 0;

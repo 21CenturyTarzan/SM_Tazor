@@ -249,8 +249,8 @@ export const aave = new StableBond({
       reserveAddress: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C",
     },
     [NetworkID.BSCMainnet]: {
-      bondAddress: "0x575409F8d77c12B05feD8B455815f0e54797381c",
-      reserveAddress: "0x6b175474e89094c44da98b954eedeac495271d0f",
+      bondAddress: "0x575409F8d77c12B05feD8B455815f0e54797381c",        // bonding smart contract address.
+      reserveAddress: "0x6b175474e89094c44da98b954eedeac495271d0f",     // bonding token address.
     },
     [NetworkID.BSCTestnet]: {
       bondAddress: "0x454654689bB4d2224310d84b63180AdC3b8B3c65",
@@ -6436,8 +6436,8 @@ export const taz_native_token = new LpToken({
       reserveAddress: "0x610aEE732AC2a928AbFfAa49d655Ad2cAdB40C22",  // BNB/TAZ LP pool
     },
     [NetworkID.BSCTestnet]: {
-      bondAddress: "0xF855E52ecc8b3b795Ac289f85F6Fd7A99883492b", //LP pool that is the USDT/BNB pair to give taz a price
-      reserveAddress: "0xEED098bf9a5467bf6eEa4F989BfFD180262d459d", //LP pool that is BNB/taz pair to give taz liquidity
+      bondAddress: "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE", //LP pool that is the USDT/BNB pair to give taz a price
+      reserveAddress: "0x610aEE732AC2a928AbFfAa49d655Ad2cAdB40C22", //LP pool that is BNB/taz pair to give taz liquidity
     },
     [NetworkID.Avalanche]: {
       bondAddress: "0xf4003f4efbe8691b60249e6afbd307abe7758adb", // AVAX/USDT LP Pool
@@ -6548,8 +6548,8 @@ export const tazor_native_token = new LpToken({
       reserveAddress: "0x1b69Eea64De0C400A736606832EEB829AFCd8d76",  // BNB/TAZOR LP Pool   usdt or usdc/tazor lp 0xF40BBa425924E784bfD39A44754eD12210D38E82
     },
     [NetworkID.BSCTestnet]: {
-      bondAddress: "0xF855E52ecc8b3b795Ac289f85F6Fd7A99883492b", //LP pool that is the stable/tazor pair to give taz a price
-      reserveAddress: "0x91Ee0e3Fe0A38ec2f171CB827F589853e15c2394", //LP pool that is token/tazor pair to give taz liquidity
+      bondAddress: "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE", //LP pool that is the stable/tazor pair to give taz a price
+      reserveAddress: "0x1b69Eea64De0C400A736606832EEB829AFCd8d76", //LP pool that is token/tazor pair to give taz liquidity
     },
     [NetworkID.Avalanche]: {
       bondAddress: "0xf4003f4efbe8691b60249e6afbd307abe7758adb", // AVAX/USDT LP Pool

@@ -122,7 +122,7 @@ export const changeApproval = createAsyncThunk(
     }
 
     const signer = provider.getSigner();
-    const tazorContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS as string, ierc20ABI, signer);
+    const tazorContract = new ethers.Contract(addresses[networkID].TAZOR_ADDRESS as string, ierc20ABI, signer);
     const tazContract = new ethers.Contract(addresses[networkID].TAZ_ADDRESS as string, ierc20ABI, signer);
     const akeContract = new ethers.Contract(addresses[networkID].DAI_ADDRESS as string, ierc20ABI, signer);
 
@@ -192,7 +192,7 @@ export const changeApproval_ = createAsyncThunk(
       return;
     }
     const signer = provider.getSigner();
-    const ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS as string, ierc20ABI, signer) as IERC20;
+    const ohmContract = new ethers.Contract(addresses[networkID].TAZOR_ADDRESS as string, ierc20ABI, signer) as IERC20;
     const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS as string, ierc20ABI, signer) as IERC20;
     const ohmV2Contract = new ethers.Contract(addresses[networkID].OHM_V2 as string, ierc20ABI, signer) as IERC20;
     const sohmV2Contract = new ethers.Contract(addresses[networkID].SOHM_V2 as string, ierc20ABI, signer) as IERC20;

@@ -99,7 +99,7 @@ function OhmMenu() {
   });
 
   const SOHM_ADDRESS = addresses[networkId] && addresses[networkId].TAZ_ADDRESS;
-  const OHM_ADDRESS = addresses[networkId] && addresses[networkId].OHM_ADDRESS;
+  const TAZOR_ADDRESS = addresses[networkId] && addresses[networkId].TAZOR_ADDRESS;
   const PT_TOKEN_ADDRESS = addresses[networkId] && addresses[networkId].TAZ_ADDRESS;
   const GOHM_ADDRESS = addresses[networkId] && addresses[networkId].GOHM_ADDRESS;
 
@@ -165,11 +165,11 @@ function OhmMenu() {
                       <Trans>ADD TOKEN TO WALLET</Trans>
                     </p>
                     <Box display="flex" flexDirection="row" justifyContent="space-between">
-                      {OHM_ADDRESS && (
+                      {TAZOR_ADDRESS && (
                         <Button
                           variant="contained"
                           color="secondary"
-                          onClick={addTokenToWallet("TAZOR", OHM_ADDRESS, address)}
+                          onClick={addTokenToWallet("TAZOR", TAZOR_ADDRESS, address)}
                         >
                           <SvgIcon
                             component={TazorTokenImg}

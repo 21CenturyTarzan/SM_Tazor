@@ -24,7 +24,7 @@ enum TokenType {
 const chooseContract = (token: string, networkID: NetworkID, signer: ethers.providers.JsonRpcSigner): IERC20 => {
   let address: string;
   if (token === "ohm") {
-    address = addresses[networkID].OHM_ADDRESS;
+    address = addresses[networkID].TAZOR_ADDRESS;
   } else if (token === "sohm") {
     address = addresses[networkID].SOHM_ADDRESS;
   } else if (token === "wsohm") {

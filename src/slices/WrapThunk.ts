@@ -27,7 +27,7 @@ export const changeApproval = createAsyncThunk(
     }
 
     const signer = provider.getSigner();
-    const tazorContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS as string, ierc20ABI, signer);
+    const tazorContract = new ethers.Contract(addresses[networkID].TAZOR_ADDRESS as string, ierc20ABI, signer);
     const tazContract = new ethers.Contract(addresses[networkID].TAZ_ADDRESS as string, ierc20ABI, signer);
 
     let approveTx;

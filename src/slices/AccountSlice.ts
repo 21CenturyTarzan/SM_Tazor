@@ -4,10 +4,7 @@ import { loadAppDetails } from "../slices/AppSlice";
 import { abi as ierc20Abi } from "../abi/IERC20.json";
 import { abi as tazorStaking } from "../abi/tazorStaking.json";
 import { abi as PresaleAbi } from "../abi/Presale.json";
-import { abi as sOHMv2 } from "../abi/sOhmv2.json";
-import { abi as fuseProxy } from "../abi/FuseProxy.json";
-import { abi as wsOHM } from "../abi/wsOHM.json";
-import { abi as fiatDAO } from "../abi/FiatDAOContract.json";
+
 
 import { setAll, handleContractError, getDisplayBalance, getMarketPrice, getTazMarketPrice } from "../helpers";
 
@@ -95,7 +92,7 @@ export const getBalances = createAsyncThunk(
       }
 
       const tazorContract = new ethers.Contract(
-        addresses[networkID].OHM_ADDRESS as string,
+        addresses[networkID].TAZOR_ADDRESS as string,
         ierc20Abi,
         provider,
       ) as IERC20;
@@ -142,7 +139,6 @@ export const getBalances = createAsyncThunk(
       balances: {
         gohm: ethers.utils.formatEther(gOhmBalance),
         gOhmAsSohmBal: ethers.utils.formatUnits(gOhmBalAsSohmBal, "gwei"),
-        // ohmV1: ethers.utils.formatUnits(ohmBalance, "gwei"),
         sohmV1: ethers.utils.formatUnits(sohmBalance, "gwei"),
         fsohm: ethers.utils.formatUnits(fsohmBalance, "gwei"),
         fgohm: ethers.utils.formatEther(fgohmBalance),
@@ -198,9 +194,9 @@ export const getMigrationAllowances = createAsyncThunk(
     let wsOhmAllowance = BigNumber.from(0);
     let gOhmAllowance = BigNumber.from(0);
 
-    if (addresses[networkID].OHM_ADDRESS) {
+    if (addresses[networkID].TAZOR_ADDRESS) {
       try {
-        const ohmContract = IERC20__factory.connect(addresses[networkID].OHM_ADDRESS, provider);
+        const ohmContract = IERC20__factory.connect(addresses[networkID].TAZOR_ADDRESS, provider);
         ohmAllowance = await ohmContract.allowance(address, addresses[networkID].MIGRATOR_ADDRESS);
       } catch (e) {
         handleContractError(e);
@@ -253,7 +249,7 @@ export const loadAccountDetails = createAsyncThunk(
     let tazAllowance = BigNumber.from("0");
 
     try {
-      const tazorContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS as string, ierc20Abi, provider);
+      const tazorContract = new ethers.Contract(addresses[networkID].TAZOR_ADDRESS as string, ierc20Abi, provider);
       const tazContract = new ethers.Contract(addresses[networkID].TAZ_ADDRESS as string, ierc20Abi, provider);
 
       let approveTx;

@@ -1,0 +1,101 @@
+{
+    "schemaVersion": "1.0.0",
+    "pairs": [
+        {
+            "chainId": "bsc",
+            "dexId": "pancakeswap",
+            "url": "https://dexscreener.com/bsc/0x1b69eea64de0c400a736606832eeb829afcd8d76",
+            "pairAddress": "0x1b69Eea64De0C400A736606832EEB829AFCd8d76",
+            "baseToken": {
+                "address": "0xee65D8B88F86ace0f7bA42BA2d2C679b6f604bf0",
+                "name": "TAZOR",
+                "symbol": "TAZOR"
+            },
+            "quoteToken": {
+                "symbol": "WBNB"
+            },
+            "priceNative": "0.06878",
+            "priceUsd": "14.95",
+            "txns": {
+                "h24": {
+                    "buys": 0,
+                    "sells": 0
+                },
+                "h6": {
+                    "buys": 0,
+                    "sells": 0
+                },
+                "h1": {
+                    "buys": 0,
+                    "sells": 0
+                },
+                "m5": {
+                    "buys": 0,
+                    "sells": 0
+                }
+            },
+            "volume": {},
+            "priceChange": {
+                "h24": 0,
+                "h6": 0,
+                "h1": 0,
+                "m5": 0
+            },
+            "liquidity": {
+                "usd": 7481.265589498993,
+                "base": 249.7,
+                "quote": 17.21
+            },
+            "fdv": 104661477.12,
+            "pairCreatedAt": 1652637977000
+        }
+    ],
+    "pair": {
+        "chainId": "bsc",
+        "dexId": "pancakeswap",
+        "url": "https://dexscreener.com/bsc/0x1b69eea64de0c400a736606832eeb829afcd8d76",
+        "pairAddress": "0x1b69Eea64De0C400A736606832EEB829AFCd8d76",
+        "baseToken": {
+            "address": "0xee65D8B88F86ace0f7bA42BA2d2C679b6f604bf0",
+            "name": "TAZOR",
+            "symbol": "TAZOR"
+        },
+        "quoteToken": {
+            "symbol": "WBNB"
+        },
+        "priceNative": "0.06878",
+        "priceUsd": "14.95",
+        "txns": {
+            "h24": {
+                "buys": 0,
+                "sells": 0
+            },
+            "h6": {
+                "buys": 0,
+                "sells": 0
+            },
+            "h1": {
+                "buys": 0,
+                "sells": 0
+            },
+            "m5": {
+                "buys": 0,
+                "sells": 0
+            }
+        },
+        "volume": {},
+        "priceChange": {
+            "h24": 0,
+            "h6": 0,
+            "h1": 0,
+            "m5": 0
+        },
+        "liquidity": {
+            "usd": 7481.265589498993,
+            "base": 249.7,
+            "quote": 17.21
+        },
+        "fdv": 104661477.12,
+        "pairCreatedAt": 1652637977000
+    }
+}
