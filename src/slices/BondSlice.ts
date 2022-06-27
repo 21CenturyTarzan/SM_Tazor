@@ -224,7 +224,7 @@ export const calcBondDetails = createAsyncThunk(
     // Calculate bonds purchased
     let purchased = 0;
     try {
-      await bond.getTreasuryBalance(networkID, provider);
+      purchased = await bond.getTreasuryBalance(networkID, provider);
       const logoImg = bond.getBondImage(networkID);
       return {
         bond: bond.name,

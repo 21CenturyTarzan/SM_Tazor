@@ -84,14 +84,14 @@ function ChooseBond() {
               <Trans>Using your other DEFI tokens to buy TAZOR is Coming Soon!</Trans>
             </Typography>
             <div className="row">
-                <Typography align="left">
-                  <h2>To Buy TAZOR or TAZ <a href="https://pancakeswap.finance/swap">Click Here</a></h2>
-                  <h2 style={{ textAlign: "justify", fontSize: "15px", fontWeight: 200 }}>TAZOR contract address is 0xee65D8B88F86ace0f7bA42BA2d2C679b6f604bf0</h2>
-                  <h2 style={{ textAlign: "justify", fontSize: "15px", fontWeight: 200 }}>TAZ contract address is 0x1fed8951D852b88930557B681409b334e1089343</h2>
-                </Typography>
-              </div>
+              <Typography align="left">
+                <h2>To Buy TAZOR or TAZ <a href="https://pancakeswap.finance/swap">Click Here</a></h2>
+                <h2 style={{ textAlign: "justify", fontSize: "15px", fontWeight: 200 }}>TAZOR contract address is 0xee65D8B88F86ace0f7bA42BA2d2C679b6f604bf0</h2>
+                <h2 style={{ textAlign: "justify", fontSize: "15px", fontWeight: 200 }}>TAZ contract address is 0x1fed8951D852b88930557B681409b334e1089343</h2>
+              </Typography>
+            </div>
           </Box>
-          
+
           <MetricCollection>
             <Metric
               label={t`Treasury Balance`}

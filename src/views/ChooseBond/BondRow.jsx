@@ -129,7 +129,7 @@ export function BondTableData({ bond }) {
           <Button variant="outlined" color="primary" disabled={!bond.isBondable[networkId]} style={{ width: "100%" }}>
             {/* NOTE (appleseed): temporary for ONHOLD MIGRATION */}
             {/* <Typography variant="h6">{!bond.isBondable[networkId] ? t`Sold Out` : t`do_bond`}</Typography> */}
-            <Typography variant="h6">{bond.isLOLable[networkId] ? bond.LOLmessage : t`Bond`}</Typography>
+            <Typography variant="h6">{t`Bond`}</Typography>
           </Button>
         </Link>
       </TableCell>

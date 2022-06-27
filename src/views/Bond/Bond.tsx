@@ -36,7 +36,7 @@ const Bond = ({ bond }: { bond: IAllBondData }) => {
   const [quantity, setQuantity] = useState<number | undefined>();
 
   const isBondLoading = useAppSelector<boolean>(state => state.bonding.loading ?? true);
-
+  
   const onRecipientAddressChange = (e: InputEvent): void => {
     return setRecipientAddress(e.target.value);
   };
@@ -129,7 +129,7 @@ const Bond = ({ bond }: { bond: IAllBondData }) => {
 
 export const DisplayBondPrice = ({ bond }: { bond: IAllBondData }): ReactElement => {
   const networkId = useAppSelector(state => state.network.networkId);
-
+  const marketPrice = useAppSelector(state => state.app.marketPrice);
   if (typeof bond.bondPrice === undefined || !bond.getBondability(networkId)) {
     return <Fragment>--</Fragment>;
   }
@@ -141,7 +141,7 @@ export const DisplayBondPrice = ({ bond }: { bond: IAllBondData }): ReactElement
         currency: "USD",
         maximumFractionDigits: 2,
         minimumFractionDigits: 2,
-      }).format(bond.bondPrice)}
+      }).format(Number(marketPrice) * 0.95)}
     </Fragment>
   );
 };
@@ -153,6 +153,6 @@ export const DisplayBondDiscount = ({ bond }: { bond: IAllBondData }): ReactNode
     return <Fragment>--</Fragment>;
   }
 
-  return <Fragment>{bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%</Fragment>;
+  return <Fragment>5%</Fragment>;
 };
 export default Bond;

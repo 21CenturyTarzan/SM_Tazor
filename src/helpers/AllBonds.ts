@@ -2469,7 +2469,7 @@ export const busd = new StableBond({
   isBondable: {
     [NetworkID.Mainnet]: false,
     [NetworkID.Testnet]: false,
-    [NetworkID.BSCMainnet]: false,
+    [NetworkID.BSCMainnet]: true,
     [NetworkID.BSCTestnet]: true,
     [NetworkID.Arbitrum]: false,
     [NetworkID.ArbitrumTestnet]: false,
@@ -2489,8 +2489,8 @@ export const busd = new StableBond({
   isLOLable: {
     [NetworkID.Mainnet]: false,
     [NetworkID.Testnet]: false,
-    [NetworkID.BSCMainnet]: false,
-    [NetworkID.BSCTestnet]: false,
+    [NetworkID.BSCMainnet]: true,
+    [NetworkID.BSCTestnet]: true,
     [NetworkID.Arbitrum]: false,
     [NetworkID.ArbitrumTestnet]: false,
     [NetworkID.Avalanche]: false,
@@ -2541,8 +2541,8 @@ export const busd = new StableBond({
       reserveAddress: "0x6b175474e89094c44da98b954eedeac495271d0f",
     },
     [NetworkID.BSCTestnet]: {
-      bondAddress: "0x454654689bB4d2224310d84b63180AdC3b8B3c65",
-      reserveAddress: "0xf6E8865F7EfcC2F413FE86e60F4354061c5B3A0D", //usdt contract address
+      bondAddress: "0x823771B4bD6d07Bd22d0bf6c504Ba62D0dE667Ee",
+      reserveAddress: "0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7", //usdt contract address
     },
     [NetworkID.Avalanche]: {
       bondAddress: "0x575409F8d77c12B05feD8B455815f0e54797381c",
@@ -6298,7 +6298,7 @@ export const cvx = new CustomBond({
 // Add new bonds to this array!!
 export const allBonds = [
   //aave,
-  ape,
+  //ape,
   //avax,
   //celo,
   //one,
@@ -6315,12 +6315,12 @@ export const allBonds = [
   //bnb,
   //btc,
   //blzz,
-  //busd,
+  busd,
   //oath,
   //comp,
   //cro,
-  cvx,
-  dai,
+  //cvx,
+  //dai,
   //jewel,
   //deus,
   //eps,

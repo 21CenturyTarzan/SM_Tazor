@@ -14,11 +14,8 @@ import { IBaseAddressAsyncThunk, ICalcUserBondDetailsAsyncThunk } from "./interf
 import { findOrLoadMarketPrice } from "./AppSlice";
 import {
   FiatDAOContract,
-  FuseProxy,
   IERC20,
   IERC20__factory,
-  SOhmv2,
-  WsOHM,
   OlympusStakingv2__factory,
 } from "src/typechain";
 import { GOHM__factory } from "src/typechain/factories/GOHM__factory";
