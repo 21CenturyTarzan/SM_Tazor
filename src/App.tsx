@@ -176,7 +176,7 @@ function App() {
 
   const loadAccount = useCallback(
     loadProvider => {
-      if (networkId == 1) {
+      if (networkId == -1) {
         return;
       }
       console.log("tarzan===>loadAccount:calculateUserBondDetail");
@@ -338,31 +338,8 @@ function App() {
             </Route>
 
             <Route path="/stake">
-              {/* if newAssets or 0 assets */}
-              {newAssetsDetected || (!newAssetsDetected && !oldAssetsDetected) || !oldAssetsEnoughToMigrate ? (
-                <Stake />
-              ) : (
-                <V1Stake
-                  hasActiveV1Bonds={hasActiveV1Bonds}
-                  oldAssetsDetected={oldAssetsDetected}
-                  setMigrationModalOpen={setMigrationModalOpen}
-                />
-              )}
+              <Stake />
             </Route>
-
-            <Route path="/v1-stake">
-              <V1Stake
-                hasActiveV1Bonds={hasActiveV1Bonds}
-                oldAssetsDetected={oldAssetsDetected}
-                setMigrationModalOpen={setMigrationModalOpen}
-              />
-            </Route>
-
-            {/* <Route path="/wrap">
-              <Route exact path={`/wrap`}>
-                <Wrap />
-              </Route>
-            </Route> */}
 
             <Route path="/zap">
               <Route exact path={`/zap`}>

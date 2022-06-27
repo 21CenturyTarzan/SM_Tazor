@@ -23,28 +23,28 @@ export function usePathForNetwork({
         if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].stake) {
           break;
         } else {
-          history.push("/stake");
+          history.push("/wrap");
           break;
         }
       case "bonds":
         if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].bonds) {
           break;
         } else {
-          history.push("/stake");
+          history.push("/wrap");
           break;
         }
       case "33-t":
         if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].threeTogether) {
           break;
         } else {
-          history.push("/stake");
+          history.push("/wrap");
           break;
         }
       case "zap":
         if (VIEWS_FOR_NETWORK[networkID] && VIEWS_FOR_NETWORK[networkID].zap) {
           break;
         } else {
-          history.push("/stake");
+          history.push("/wrap");
           break;
         }
       default:

@@ -209,16 +209,49 @@ function NavContent() {
                 </>
               ) : (
                 <>
-                  {/* <Link
-                    href={"https://synapseprotocol.com/?inputCurrency=gOHM&outputCurrency=gOHM&outputChain=43114"}
-                    target="_blank"
+                  <Link
+                    component={NavLink}
+                    id="dash-nav"
+                    to="/dashboard"
+                    isActive={(match, location) => {
+                      return checkPage(match, location, "dashboard");
+                    }}
+                    className={`button-dapp-menu ${isActive ? "active" : ""}`}
                   >
                     <Typography variant="h6">
-                      <BridgeIcon />
-                      <Trans>Bridge</Trans>
-                      <SvgIcon style={{ marginLeft: "5px" }} component={ArrowUpIcon} />
+                      <SvgIcon color="primary" component={DashboardIcon} />
+                      <Trans>Liquidity</Trans>
                     </Typography>
-                  </Link> */}
+                  </Link>
+                  <Link
+                    component={NavLink}
+                    id="dash-nav"
+                    to="/presale"
+                    isActive={(match, location) => {
+                      return checkPage(match, location, "presale");
+                    }}
+                    className={`button-dapp-menu ${isActive ? "active" : ""}`}
+                  >
+                    <Typography variant="h6">
+                      <SvgIcon color="primary" component={WrapIcon} />
+                      <Trans>Pre-Sale</Trans>
+                    </Typography>
+                  </Link>
+                  
+                  <Link
+                    component={NavLink}
+                    id="stake-nav"
+                    to="/stake"
+                    isActive={(match, location) => {
+                      return checkPage(match, location, "stake");
+                    }}
+                    className={`button-dapp-menu ${isActive ? "active" : ""}`}
+                  >
+                    <Typography variant="h6">
+                      <SvgIcon color="primary" component={StakeIcon} />
+                      <Trans>Stake/Earn</Trans>
+                    </Typography>
+                  </Link>
                 </>
               )}
             </div>

@@ -63,14 +63,14 @@ export const loadAppDetails = createAsyncThunk(
       // provider = NodeHelper.getMainnetStaticProvider();
       // networkID = 1;
     }
-    const graphData = await apollo<{ protocolMetrics: IProtocolMetrics[] }>(protocolMetricsQuery);
+    // const graphData = await apollo<{ protocolMetrics: IProtocolMetrics[] }>(protocolMetricsQuery);
 
-    if (!graphData || graphData == null) {
-      console.error("Returned a null response when querying TheGraph");
-      return;
-    }
+    // if (!graphData || graphData == null) {
+    //   console.error("Returned a null response when querying TheGraph");
+    //   return;
+    // }
 
-    const stakingTVL = parseFloat(graphData.data.protocolMetrics[0].totalValueLocked);
+    // const stakingTVL = parseFloat(graphData.data.protocolMetrics[0].totalValueLocked);
     let marketPrice;
     let tazMarketPrice;
     let tazorMarketCap;
@@ -108,25 +108,25 @@ export const loadAppDetails = createAsyncThunk(
       return;
     }
 
-    const marketCap = parseFloat(graphData.data.protocolMetrics[0].marketCap);
-    const circSupply = parseFloat(graphData.data.protocolMetrics[0].ohmCirculatingSupply);
-    const totalSupply = parseFloat(graphData.data.protocolMetrics[0].totalSupply);
-    const treasuryMarketValue = parseFloat(graphData.data.protocolMetrics[0].treasuryMarketValue);
+    // const marketCap = parseFloat(graphData.data.protocolMetrics[0].marketCap);
+    // const circSupply = parseFloat(graphData.data.protocolMetrics[0].ohmCirculatingSupply);
+    // const totalSupply = parseFloat(graphData.data.protocolMetrics[0].totalSupply);
+    // const treasuryMarketValue = parseFloat(graphData.data.protocolMetrics[0].treasuryMarketValue);
 
     if (!provider) {
       console.error("failed to connect to provider, please connect your wallet");
       return {
-        stakingTVL,
+        stakingTVL: 0,
         marketPrice,
         tazMarketPrice,
-        marketCap,
+        marketCap : 0,
         tazMarketCap,
         tazorMarketCap,
-        circSupply,
-        totalSupply,
+        circSupply: 0,
+        totalSupply: 0,
         tazorTotalSupply,
         tazTotalSupply,
-        treasuryMarketValue,
+        treasuryMarketValue : 0,
       } as IAppData;
     }
     const currentBlock = await provider.getBlockNumber();
@@ -146,19 +146,19 @@ export const loadAppDetails = createAsyncThunk(
       stakingAPY,
       secondsToEpoch,
       currentBlock,
-      stakingTVL,
-      marketCap,
+      stakingTVL: 0,
+      marketCap : 0,
       marketPrice,
       tazMarketCap,
       tazorMarketCap,
       tazMarketPrice,
-      circSupply,
-      totalSupply,
+      circSupply: 0,
+      totalSupply: 0,
       tazorTotalSupply,
       tazTotalSupply,
       // totalTazorStaked,
       // totalTazStaked,
-      treasuryMarketValue,
+      treasuryMarketValue: 0,
     } as IAppData;
   },
 );

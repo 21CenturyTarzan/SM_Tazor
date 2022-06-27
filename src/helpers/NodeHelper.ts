@@ -130,7 +130,7 @@ export class NodeHelper {
    */
   static getMainnetStaticProvider = () => {
     console.log("currentNetId", NodeHelper.currentNetworkID);
-    return new StaticJsonRpcProvider(NodeHelper.getMainnetURI(43114));
+    return new StaticJsonRpcProvider(NodeHelper.getMainnetURI(56));
   };
 
   /**

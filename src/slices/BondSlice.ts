@@ -221,6 +221,9 @@ export const calcBondDetails = createAsyncThunk(
       dispatch(error(errorString));
     }
 
+    let bondQuoteVal: number = 0;
+    bondQuoteVal = Number(value) / (Number(marketPrice) * 0.95);
+
     // Calculate bonds purchased
     let purchased = 0;
     try {
@@ -230,7 +233,8 @@ export const calcBondDetails = createAsyncThunk(
         bond: bond.name,
         bondDiscount,
         debtRatio: Number(debtRatio.toString()),
-        bondQuote: Number(bondQuote.toString()),
+        // bondQuote: Number(bondQuote.toString()),
+        bondQuote: bondQuoteVal,
         purchased,
         vestingTerm: Number(terms.vestingTerm.toString()),
         maxBondPrice: Number(maxBondPrice.toString()) / Math.pow(10, 9),

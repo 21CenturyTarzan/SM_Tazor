@@ -109,10 +109,10 @@ export const initializeNetwork = createAsyncThunk(
         initialized: supported,
       };
     } catch (e) {
-      /*console.log(e);
-      dispatch(error("Error connecting to wallet!"));*/
+      console.log(e);
+      dispatch(error("Error connecting to wallet!"));
       return {
-        networkId: -43114,
+        networkId: -1,
         networkName: "",
         uri: "",
         initialized: false,
@@ -175,7 +175,7 @@ interface INetworkSlice {
 }
 
 const initialState: INetworkSlice = {
-  networkId: -43114,
+  networkId: -1,
   networkName: "",
   uri: "",
   initialized: false,

@@ -126,7 +126,7 @@ export const getBalances = createAsyncThunk(
 
       totalDeposited =
         Number(totalTazStaked) * Number(tazMarketPrice) + Number(totalTazorStaked) * Number(tazorMarketPrice);
-      console.log("[tz]=========> totalDeposited: ", totalDeposited);
+      
     } catch (e) {
       handleContractError(e);
     }
@@ -279,6 +279,7 @@ export const calculateUserBondDetails = createAsyncThunk(
     if (!address) {
       return {
         bond: "",
+        logoImg: bond.getBondImage(networkID),
         displayName: "",
         bondIconSvg: "",
         isLP: false,
@@ -316,6 +317,7 @@ export const calculateUserBondDetails = createAsyncThunk(
       // balanceVal should NOT be converted to a number. it loses decimal precision
       return {
         bond: bond.name,
+        logoImg: bond.getBondImage(networkID),
         displayName: bond.getTokenName(networkID),
         bondIconSvg: bond.bondIconSvg,
         isLP: bond.isLP,
@@ -328,6 +330,7 @@ export const calculateUserBondDetails = createAsyncThunk(
     } catch (e: unknown) {
       return {
         bond: bond.name,
+        logoImg: bond.getBondImage(networkID),
         displayName: bond.getTokenName(networkID),
         bondIconSvg: bond.bondIconSvg,
         isLP: false,
