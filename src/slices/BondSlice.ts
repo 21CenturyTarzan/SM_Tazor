@@ -135,15 +135,6 @@ export const calcBondDetails = createAsyncThunk(
       debtRatio = BigNumber.from("0");
     }
 
-    if (bond.name === "aave") {
-      console.log("1111");
-      debtRatio = BigNumber.from("1");
-    }
-    if (bond.name === "sushi") {
-      console.log("3333");
-      debtRatio = BigNumber.from("1");
-    }
-
     let marketPrice: number = 0;
     try {
       const originalPromiseResult = await dispatch(
@@ -221,8 +212,9 @@ export const calcBondDetails = createAsyncThunk(
       dispatch(error(errorString));
     }
 
-    let bondQuoteVal: number = 0;
-    bondQuoteVal = Number(value) / (Number(marketPrice) * 0.95);
+    // let bondQuoteVal: number = 0;
+    // bondQuoteVal = Number(value) / (Number(marketPrice) * 0.95);
+    console.log("[tarzan]: payoutfor" , bondQuote);
 
     // Calculate bonds purchased
     let purchased = 0;
@@ -233,8 +225,8 @@ export const calcBondDetails = createAsyncThunk(
         bond: bond.name,
         bondDiscount,
         debtRatio: Number(debtRatio.toString()),
-        // bondQuote: Number(bondQuote.toString()),
-        bondQuote: bondQuoteVal,
+        bondQuote: Number(bondQuote.toString()),
+        // bondQuote: bondQuoteVal,
         purchased,
         vestingTerm: Number(terms.vestingTerm.toString()),
         maxBondPrice: Number(maxBondPrice.toString()) / Math.pow(10, 9),

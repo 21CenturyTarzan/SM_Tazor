@@ -70,7 +70,7 @@ export const TazorTVLCap = () => {
     networkName = network["chainName"];
   }
   const marketCap = useSelector(state => {
-    console.log(state);
+    // console.log(state);
     return state.app.tazorMarketCap || 0;
   });
 

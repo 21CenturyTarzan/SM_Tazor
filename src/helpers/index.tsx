@@ -22,35 +22,36 @@ import { NodeHelper } from "../helpers/NodeHelper";
 * @returns Number like 333.33
 */
 export async function getMarketPrice({ networkID, provider }: IBaseAsyncThunk) {
-  
+
   if (networkID === 1) {
     const pairAddress = tazor_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/eth/'+ pairAddress);
+    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/eth/' + pairAddress);
     const marketPrice = res.data["pair"].priceUsd;
     return marketPrice;
   }
   if (networkID === 56) {
     const pairAddress = tazor_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
+    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/' + pairAddress);
     const marketPrice = res.data["pair"].priceUsd;
     return marketPrice;
   }
   if (networkID === 97) {
-    // const tazor_native_contract = tazor_native_token.getContractForReserve(networkID, provider);
-    // const reserves = await tazor_native_contract.getReserves();
-    // const native_usdt_contract = tazor_native_token.getContractStableNative(networkID, provider);
-    // const reserves2 = await native_usdt_contract.getReserves();
-    // const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
-    // console.log("native token price", nativeTokenPrice);
-    // console.log("tarzan:stable token===>", Number(reserves2[0].toString()));
-    // console.log("tarzan:native token===>", Number(reserves2[1].toString()));
-    // let marketPrice = Number(reserves[1].toString()) / Number(reserves[0].toString()) / 10 ** 9;
-    // console.log("tarzan:tazor===>", Number(reserves[0].toString()) / 10 ** 9);
-    // console.log("tarzan:native token===>", Number(reserves[1].toString()) / 10 ** 18);
-    // marketPrice = marketPrice * nativeTokenPrice;
-    const pairAddress = tazor_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
-    const marketPrice = res.data["pair"].priceUsd;
+    const tazor_native_contract = tazor_native_token.getContractForReserve(networkID, provider);
+    const reserves = await tazor_native_contract.getReserves();
+    const native_usdt_contract = tazor_native_token.getContractStableNative(networkID, provider);
+    const reserves2 = await native_usdt_contract.getReserves();
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    console.log("native token price", nativeTokenPrice);
+    console.log("tarzan:stable token===>", Number(reserves2[0].toString()));
+    console.log("tarzan:native token===>", Number(reserves2[1].toString()));
+    let marketPrice = Number(reserves[1].toString()) / Number(reserves[0].toString()) / 10 ** 9;
+    console.log("tarzan:tazor===>", Number(reserves[0].toString()) / 10 ** 9);
+    console.log("tarzan:native token===>", Number(reserves[1].toString()) / 10 ** 18);
+    marketPrice = marketPrice * nativeTokenPrice;
+
+    // const pairAddress = tazor_native_token.getAddressForReserve(networkID);
+    // const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
+    // const marketPrice = res.data["pair"].priceUsd;
     return marketPrice;
   }
   if (networkID === 43114) {
@@ -207,23 +208,76 @@ export async function getMarketPrice({ networkID, provider }: IBaseAsyncThunk) {
 }
 
 export async function getTazorMarketCap({ networkID, provider }: IBaseAsyncThunk) {
+  
+  const tazor_dai_address = tazor_native_token.getAddressForReserve(networkID);
+  const pairContract = new ethers.Contract(tazor_dai_address || "", PairContractABI, provider) as PairContract;
+  const reserves = await pairContract.getReserves();
+
+  const native_usdt_contract = tazor_native_token.getContractStableNative(networkID, provider);
+  const reserves2 = await native_usdt_contract.getReserves();
   if (networkID === 1) {
-    const pairAddress = tazor_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/eth/'+ pairAddress);
-    const marketCap = res.data["pair"]["liquidity"].usd;
-    return marketCap;
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[1].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
   }
   if (networkID === 56) {
-    const pairAddress = tazor_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
-    const marketCap = res.data["pair"]["liquidity"].usd;
-    return marketCap;
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[0].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
   }
   if (networkID === 97) {
-    const pairAddress = tazor_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
-    const marketCap = res.data["pair"]["liquidity"].usd;
-    return marketCap;
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[1].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  }
+  if (networkID === 43114) {
+    const nativeTokenPrice = Number(reserves2[1].toString()) / Number(reserves2[0].toString());
+    const marketCap = (Number(reserves[0].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  }
+  if (networkID === 250) {
+    const nativeTokenPrice = (Number(reserves2[0].toString()) / 10 ** 6) / (Number(reserves2[1].toString()) / 10 ** 18);
+    const marketCap = (Number(reserves[0].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  }
+  if (networkID === 137) {
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[1].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  }
+  if (networkID === 361) {
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[1].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  }
+  if (networkID === 1666600000) {
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[1].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  }
+  if (networkID === 40) {
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[1].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  }
+  if (networkID === 19) {
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[1].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  }
+  if (networkID === 42220) {
+    const nativeTokenPrice = Number(reserves2[1].toString()) / Number(reserves2[0].toString());
+    const marketCap = (Number(reserves[0].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  }
+  if (networkID === 1285) {
+    const nativeTokenPrice = Number(reserves2[0].toString()) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[1].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
+  } else {
+    const nativeTokenPrice = (10 ** 12 * Number(reserves2[0].toString())) / Number(reserves2[1].toString());
+    const marketCap = (Number(reserves[1].toString()) * 2) / 10 ** 18;
+    return marketCap * nativeTokenPrice;
   }
 }
 
@@ -232,28 +286,28 @@ export async function getTazorMarketCap({ networkID, provider }: IBaseAsyncThunk
 * @returns Number like 333.33
 */
 export async function getTazMarketPrice({ networkID, provider }: IBaseAsyncThunk) {
-  
+
   if (networkID === 1) {
     const pairAddress = taz_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/eth/'+ pairAddress);
+    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/eth/' + pairAddress);
     const marketPrice = res.data["pair"].priceUsd;
     return marketPrice;
   }
   if (networkID === 56) {
     const pairAddress = taz_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
+    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/' + pairAddress);
     const marketPrice = res.data["pair"].priceUsd;
     return marketPrice;
   }
   if (networkID === 97) {
     const pairAddress = taz_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
+    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/' + pairAddress);
     const marketPrice = res.data["pair"].priceUsd;
     return marketPrice;
   }
   else {
     const pairAddress = taz_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
+    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/' + pairAddress);
     const marketPrice = res.data["pair"].priceUsd;
     return marketPrice;
   }
@@ -262,19 +316,19 @@ export async function getTazMarketPrice({ networkID, provider }: IBaseAsyncThunk
 export async function getTazMarketCap({ networkID, provider }: IBaseAsyncThunk) {
   if (networkID === 1) {
     const pairAddress = taz_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/eth/'+ pairAddress);
+    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/eth/' + pairAddress);
     const marketCap = res.data["pair"]["liquidity"].usd;
     return marketCap;
   }
   if (networkID === 56) {
     const pairAddress = taz_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
+    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/' + pairAddress);
     const marketCap = res.data["pair"]["liquidity"].usd;
     return marketCap;
   }
   if (networkID === 97) {
     const pairAddress = taz_native_token.getAddressForReserve(networkID);
-    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/'+ pairAddress);
+    const res = await axios.get('https://api.dexscreener.com/latest/dex/pairs/bsc/' + pairAddress);
     const marketCap = res.data["pair"]["liquidity"].usd;
     return marketCap;
   }

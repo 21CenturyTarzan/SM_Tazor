@@ -1891,10 +1891,10 @@ export const qi = new StableBond({
   },
 });
 
-export const bnb = new StableBond({
-  name: "bnb",
-  displayName: "BNB",
-  bondToken: "BNB",
+export const wbnb = new StableBond({
+  name: "wbnb",
+  displayName: "WBNB",
+  bondToken: "WBNB",
   payoutToken: "TAZOR",
   v2Bond: false,
   bondIconSvg: {
@@ -1919,30 +1919,30 @@ export const bnb = new StableBond({
   },
   bondContractABI: DaiBondContract,
   tokenName: {
-    [NetworkID.Mainnet]: "BNB",
-    [NetworkID.Testnet]: "BNB",
-    [NetworkID.BSCMainnet]: "BNB",
-    [NetworkID.BSCTestnet]: "BNB",
-    [NetworkID.Arbitrum]: "BNB",
-    [NetworkID.ArbitrumTestnet]: "BNB",
-    [NetworkID.Avalanche]: "BNB",
-    [NetworkID.AvalancheTestnet]: "BNB",
-    [NetworkID.Fantom]: "BNB",
-    [NetworkID.Polygon]: "BNB",
-    [NetworkID.Theta]: "BNB",
-    [NetworkID.Songbird]: "BNB",
-    [NetworkID.Harmony]: "BNB",
-    [NetworkID.Telos]: "BNB",
-    [NetworkID.Metis]: "BNB",
-    [NetworkID.Celo]: "BNB",
-    [NetworkID.Moonriver]: "BNB",
-    [NetworkID.Wanchain]: "BNB",
+    [NetworkID.Mainnet]: "WBNB",
+    [NetworkID.Testnet]: "WBNB",
+    [NetworkID.BSCMainnet]: "WBNB",
+    [NetworkID.BSCTestnet]: "WBNB",
+    [NetworkID.Arbitrum]: "WBNB",
+    [NetworkID.ArbitrumTestnet]: "WBNB",
+    [NetworkID.Avalanche]: "WBNB",
+    [NetworkID.AvalancheTestnet]: "WBNB",
+    [NetworkID.Fantom]: "WBNB",
+    [NetworkID.Polygon]: "WBNB",
+    [NetworkID.Theta]: "WBNB",
+    [NetworkID.Songbird]: "WBNB",
+    [NetworkID.Harmony]: "WBNB",
+    [NetworkID.Telos]: "WBNB",
+    [NetworkID.Metis]: "WBNB",
+    [NetworkID.Celo]: "WBNB",
+    [NetworkID.Moonriver]: "WBNB",
+    [NetworkID.Wanchain]: "WBNB",
   },
   isBondable: {
     [NetworkID.Mainnet]: false,
     [NetworkID.Testnet]: false,
-    [NetworkID.BSCMainnet]: false,
-    [NetworkID.BSCTestnet]: false,
+    [NetworkID.BSCMainnet]: true,
+    [NetworkID.BSCTestnet]: true,
     [NetworkID.Arbitrum]: false,
     [NetworkID.ArbitrumTestnet]: false,
     [NetworkID.Avalanche]: false,
@@ -1961,8 +1961,8 @@ export const bnb = new StableBond({
   isLOLable: {
     [NetworkID.Mainnet]: false,
     [NetworkID.Testnet]: false,
-    [NetworkID.BSCMainnet]: false,
-    [NetworkID.BSCTestnet]: false,
+    [NetworkID.BSCMainnet]: true,
+    [NetworkID.BSCTestnet]: true,
     [NetworkID.Arbitrum]: false,
     [NetworkID.ArbitrumTestnet]: false,
     [NetworkID.Avalanche]: false,
@@ -2013,8 +2013,8 @@ export const bnb = new StableBond({
       reserveAddress: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c", //correct BSC WBNB address
     },
     [NetworkID.BSCTestnet]: {
-      bondAddress: "0x454654689bB4d2224310d84b63180AdC3b8B3c65",
-      reserveAddress: "0xFfDC14b5cefEE5b43D84D4C786136E58f1983597",//correct testBSC WBNB address
+      bondAddress: "0x662768aA230D4C5eB0968c906F07F83166F20D9E",
+      reserveAddress: "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",//correct testBSC WBNB address
     },
     [NetworkID.Avalanche]: {
       bondAddress: "0x575409F8d77c12B05feD8B455815f0e54797381c",
@@ -2541,8 +2541,8 @@ export const busd = new StableBond({
       reserveAddress: "0x6b175474e89094c44da98b954eedeac495271d0f",
     },
     [NetworkID.BSCTestnet]: {
-      bondAddress: "0x823771B4bD6d07Bd22d0bf6c504Ba62D0dE667Ee",
-      reserveAddress: "0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7", //usdt contract address
+      bondAddress: "0x702F72b5AF7af830b71569576E35E9b5802D72ca",
+      reserveAddress: "0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7", //busd contract address
     },
     [NetworkID.Avalanche]: {
       bondAddress: "0x575409F8d77c12B05feD8B455815f0e54797381c",
@@ -3423,8 +3423,8 @@ export const usdt = new StableBond({
       reserveAddress: "0x6b175474e89094c44da98b954eedeac495271d0f",
     },
     [NetworkID.BSCTestnet]: {
-      bondAddress: "0xDC7890C9DD41EF6157732cd8d67e317203aFDEE6", // BondDepostory
-      reserveAddress: "0xf6E8865F7EfcC2F413FE86e60F4354061c5B3A0D", // USDT contract address
+      bondAddress: "0xd2650fc624441fcd8161F25aF62936993dD3a942", // BondDepostory
+      reserveAddress: "0x7ef95a0FEE0Dd31b22626fA2e10Ee6A223F8a684", // USDT contract address
     },
     [NetworkID.Avalanche]: {
       bondAddress: "0x575409F8d77c12B05feD8B455815f0e54797381c",
@@ -3879,8 +3879,8 @@ export const eth = new StableBond({
   isBondable: {
     [NetworkID.Mainnet]: true,
     [NetworkID.Testnet]: false,
-    [NetworkID.BSCMainnet]: false,
-    [NetworkID.BSCTestnet]: false,
+    [NetworkID.BSCMainnet]: true,
+    [NetworkID.BSCTestnet]: true,
     [NetworkID.Arbitrum]: false,
     [NetworkID.ArbitrumTestnet]: false,
     [NetworkID.Avalanche]: false,
@@ -3951,8 +3951,8 @@ export const eth = new StableBond({
       reserveAddress: "0x6b175474e89094c44da98b954eedeac495271d0f",
     },
     [NetworkID.BSCTestnet]: {
-      bondAddress: "0xb4bE3D7E8d0fb2932e77EaB561ae7737b484595b", // BondDepostory
-      reserveAddress: "0x7ef95a0FEE0Dd31b22626fA2e10Ee6A223F8a684", // USDT contract address
+      bondAddress: "0x487Da65e0cCE2f2e468139537AD816168bef1405", // BondDepostory
+      reserveAddress: "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd", // bnb contract address
     },
     [NetworkID.Avalanche]: {
       bondAddress: "0x575409F8d77c12B05feD8B455815f0e54797381c",
@@ -6312,7 +6312,6 @@ export const allBonds = [
   //bifi,
   //beets,
   //qi,
-  //bnb,
   //btc,
   //blzz,
   busd,
@@ -6324,7 +6323,7 @@ export const allBonds = [
   //jewel,
   //deus,
   //eps,
-  //eth,
+  // eth,
   //wagmi,
   //ftm,
   //sfin,
@@ -6343,7 +6342,7 @@ export const allBonds = [
   //mfam,
   //charm,
   //brush,
-  cake,
+  //cake,
   //matic,
   //mai,
   //quick,
@@ -6366,6 +6365,7 @@ export const allBonds = [
   //tshare,
   //tbond,
   //joe,
+  wbnb,
   //tranq,
   //ube,
   //uni,
@@ -6548,8 +6548,8 @@ export const tazor_native_token = new LpToken({
       reserveAddress: "0x1b69Eea64De0C400A736606832EEB829AFCd8d76",  // BNB/TAZOR LP Pool   usdt or usdc/tazor lp 0xF40BBa425924E784bfD39A44754eD12210D38E82
     },
     [NetworkID.BSCTestnet]: {
-      bondAddress: "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE", //LP pool that is the stable/tazor pair to give taz a price
-      reserveAddress: "0x1b69Eea64De0C400A736606832EEB829AFCd8d76", //LP pool that is token/tazor pair to give taz liquidity
+      bondAddress: "0xF855E52ecc8b3b795Ac289f85F6Fd7A99883492b",
+      reserveAddress: "0x4Ab4f9f53F77fe45979bF2386AF9B5b095314B48",
     },
     [NetworkID.Avalanche]: {
       bondAddress: "0xf4003f4efbe8691b60249e6afbd307abe7758adb", // AVAX/USDT LP Pool
